@@ -13,8 +13,12 @@ function prompt_char {
       }
 
 if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
+
+    # display exitcode on the right when >0
+    return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
+
     PROMPT='%(?, ,%{$fg[red]%}FAIL%{$reset_color%})
-%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)
+%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%m%{$reset_color%}: %{$fg[blue]%}%~%{$reset_color%}$(git_prompt_info)                   ${return_code}
  $(prompt_char) '
 
     ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[green]%}"
@@ -22,10 +26,7 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-    # display exitcode on the right when >0
-    return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
-
-    RPROMPT='${return_code}$(git_prompt_status)%{$reset_color%}%{$fg[green]%}[%*]%{$reset_color%}'
+    RPROMPT='$(git_prompt_status)%{$reset_color%}%{$fg[green]%}[%*]%{$reset_color%}'
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚ "
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹ "
