@@ -26,7 +26,12 @@ if [[ "$TERM" != "dumb" ]] && [[ "$DISABLE_LS_COLORS" != "true" ]]; then
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-    RPROMPT='$(git_prompt_status)%{$reset_color%}%{$fg[green]%}[%*]%{$reset_color%}'
+    if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]
+    then
+      RPROMPT='$(git_prompt_status)%{$reset_color%}%{$fg[green]%}[%*]%{$reset_color%}'
+    else
+      RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
+    fi
 
     ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%} ✚ "
     ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[blue]%} ✹ "
