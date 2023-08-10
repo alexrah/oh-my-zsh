@@ -7,3 +7,6 @@
 [submodule "plugins/zsh-python-venv-prompt"]
 	path = plugins/zsh-python-venv-prompt
 	url = https://github.com/alexrah/zsh-python-venv-prompt
+[submodule "plugins/autoswitch_virtualenv"]
+	path = plugins/autoswitch_virtualenv
+	url = https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
