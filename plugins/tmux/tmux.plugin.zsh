@@ -106,34 +106,16 @@ else
   export _ZSH_TMUX_FIXED_CONFIG="${0:h:a}/tmux.only.conf"
 fi
 
-function _zsh_tmux_fixterm(){
-
-  if [[ "$ZSH_TMUX_FIXTERM" == "true" ]]; then
-    tmux_cmd+=(-f "$_ZSH_TMUX_FIXED_CONFIG")
-  elif [[ -e "$ZSH_TMUX_CONFIG" ]]; then
-    tmux_cmd+=(-f "$ZSH_TMUX_CONFIG")
-  fi
-
-}
-
 # Wrapper function for tmux.
 function _zsh_tmux_plugin_run() {
 
-  local -a tmux_cmd
-  tmux_cmd=(command tmux)
-
   if [[ -n "$@" ]]; then
-    if [[ "$(echo $@ | awk '{print $1}')" == 'new-session' ]];then
-
-    # TODO: replace awk with Shell Native Expansion
-    # @see https://stackoverflow.com/questions/6284560/how-to-split-a-variable-by-a-special-character
-    # if [[ "$(echo ${$@%% *} )" == 'new-session' ]];then
-    
-      _zsh_tmux_fixterm 
-    fi
-    $tmux_cmd "$@"
+    command tmux "$@"
     return $?
   fi
+
+  local -a tmux_cmd
+  tmux_cmd=(command tmux)
 
   [[ "$ZSH_TMUX_ITERM2" == "true" ]] && tmux_cmd+=(-CC)
   [[ "$ZSH_TMUX_UNICODE" == "true" ]] && tmux_cmd+=(-u)
