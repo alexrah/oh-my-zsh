@@ -10,3 +10,6 @@
 [submodule "plugins/autoswitch_virtualenv"]
 	path = plugins/autoswitch_virtualenv
 	url = https://github.com/MichaelAquilina/zsh-autoswitch-virtualenv
+[submodule "plugins/claudecode"]
+	path = plugins/claudecode
+	url = https://github.com/alexrah/zsh-claudecode-plugin
