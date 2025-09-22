@@ -13,6 +13,3 @@
 [submodule "plugins/claudecode"]
 	path = plugins/claudecode
 	url = https://github.com/alexrah/zsh-claudecode-plugin
-[submodule "plugins/zsh-pnpm-completions"]
-	path = plugins/zsh-pnpm-completions
-	url = https://github.com/michakfromparis/zsh-pnpm-completions
