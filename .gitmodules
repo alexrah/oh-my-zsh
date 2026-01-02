@@ -19,4 +19,3 @@
 [submodule "plugins/zsh-kubectl-prompt"]
 	path = plugins/zsh-kubectl-prompt
 	url = https://github.com/superbrothers/zsh-kubectl-prompt.git
->>>>>>> 666f9c3e8c209e0cf20eec1bf3b9b66e5e075442
