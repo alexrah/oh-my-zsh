@@ -15,5 +15,8 @@
 	url = https://github.com/alexrah/zsh-claudecode-plugin
 [submodule "plugins/zsh-pnpm-completions"]
 	path = plugins/zsh-pnpm-completions
-	url = https://github.com/alexrah/zsh-pnpm-completions
-	branch = fix/alias-collision-ps 
+	url = https://github.com/michakfromparis/zsh-pnpm-completions
+[submodule "plugins/zsh-kubectl-prompt"]
+	path = plugins/zsh-kubectl-prompt
+	url = https://github.com/superbrothers/zsh-kubectl-prompt.git
+>>>>>>> 666f9c3e8c209e0cf20eec1bf3b9b66e5e075442
